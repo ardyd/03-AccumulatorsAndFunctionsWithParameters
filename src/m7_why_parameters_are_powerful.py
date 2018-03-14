@@ -13,7 +13,7 @@ def main():
     run_test_draw_circles()
     # Un-comment the next lines when you are ready to use them.
     run_test_better_draw_circles()
-    # run_test_even_better_draw_circles()
+    run_test_even_better_draw_circles()
 
 
 # ----------------------------------------------------------------------
@@ -130,7 +130,7 @@ def better_draw_circles(value):
 
 
 # ----------------------------------------------------------------------
-# TODO: 3.
+#   DONE: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -157,6 +157,49 @@ def better_draw_circles(value):
 #   In testing your even_better_draw_circles function,
 #   can you make some fun pictures?
 # ----------------------------------------------------------------------
+
+def run_test_even_better_draw_circles():
+    print()
+    print('-------------------------------------------------------')
+    print('Testing  even_better_draw_circles:  See graphics window')
+    print('-------------------------------------------------------')
+
+    # Test 1.1
+    radius1 = 15
+    color1 = 'azure'
+    thickness1 = 4
+    even_better_draw_circles(6, color1, thickness1, radius1)
+    print('radius of test window one =', radius1)
+
+    # Test 1.2
+    radius2 = 11
+    color2 = 'beige'
+    thickness2 = 4
+    even_better_draw_circles(25, color2, thickness2, radius2)
+    print('radius of test window two =', radius2)
+
+    # Test 1.3
+    radius3 = 19
+    color3 = 'crimson'
+    thickness3 = 2
+    even_better_draw_circles(11, color3, thickness3, radius3)
+    print('radius of test window three =', radius3)
+
+
+def even_better_draw_circles(n, color, thickness, radius):
+
+    window = rg.RoseWindow(400, 400, 'Even Better Draw Circles')
+
+    center = rg.Point(200, 200)
+    for k in range(n):
+        circle = rg.Circle(center, radius * k)
+        circle.outline_color = color
+        circle.outline_thickness = thickness
+        circle.attach_to(window)
+        window.render(0.05)
+
+    window.close_on_mouse_click()
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
